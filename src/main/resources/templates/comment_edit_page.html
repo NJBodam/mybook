@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Comment</title>
+    <!--  <link rel="stylesheet" href="css/post.css">-->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        /* ::selection{
+            color: #fff;
+            background: #1a81ff;
+        } */
+        .container{
+            width: 500px;
+            overflow: hidden;
+            border-radius: 10px;
+            transition: height 0.2s ease;
+            background: #ecf0f3;
+            box-shadow: 13px 13px 20px #cbced1,
+            -13px -13px 20px #ffffff;
+        }
+
+        .container .wrapper{
+            width: 1000px;
+            display: flex;
+        }
+        .container .wrapper section{
+            width: 500px;
+        }
+        .container .post{
+            transition: margin-left 0.18s ease;
+        }
+        .container.active .post{
+            margin-left: -500px;
+        }
+        .post header{
+            font-size: 22px;
+            font-weight: 600;
+            padding: 17px 0;
+            text-align: center;
+            border-bottom: 1px solid #bfbfbf;
+        }
+        .post form{
+            margin: 20px 25px;
+        }
+        .post form .content,
+        .audience .list li .column{
+            display: flex;
+            align-items: center;
+        }
+        .post form .content img{
+            cursor: default;
+            max-width: 52px;
+        }
+        .post form .content .details{
+            margin: -3px 0 0 12px;
+        }
+        form .content .details p{
+            font-size: 17px;
+            font-weight: 500;
+        }
+        form :where(textarea, button){
+            width: 100%;
+            outline: none;
+            border: none;
+        }
+
+        .body-text{
+            border: none;
+            padding: 10px;
+            height: 150px;
+            border-radius:5px;
+            background:rgb(240, 240, 240);
+        }
+        .content .details .title-text{
+            border: none;
+            width: 178%;
+            outline:none;
+            margin-left: -10px;
+            padding: 25px;
+            height: 0px;
+            border-radius:5px;
+            background:rgb(240, 240, 240);
+
+        }
+
+        form textarea{
+            resize: none;
+            font-size: 18px;
+            margin-top: 30px;
+            min-height: 100px;
+            font-weight: 100;
+            box-shadow: inset 8px 8px 8px #cbced1,
+            inset -8px -8px 8px #ffffff;
+        }
+        form .title-text{
+            font-size:20px;
+            letter-spacing:2px;
+            resize: none;
+            font-weight: 400;
+            box-shadow: inset 8px 8px 8px #cbced1,
+            inset -8px -8px 8px #ffffff;
+
+
+        }
+        form textarea::placeholder{
+            color: #858585;
+        }
+        form textarea:focus::placeholder{
+            color: #b3b3b3;
+        }
+
+        form .options{
+            height: 57px;
+            margin: 15px 0;
+            padding: 0 15px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            border-radius: 7px;
+            box-shadow:  8px 8px 8px #cbced1,
+            -8px -8px 8px #ffffff;
+        }
+        form .options p{
+            color: #595959;
+            font-size: 15px;
+            font-weight: 500;
+            cursor: default;
+        }
+
+
+
+
+
+        .form-button{
+            height: 53px;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 500;
+            color: #BCC0C4;
+            cursor: no-drop;
+            border-radius: 7px;
+            background: #e2e5e9;
+            transition: all 0.3s ease;
+            width: 300px; margin-left: 15%;
+            height:45px;
+            border: none;
+        }
+
+        form .body-text:valid ~ button{
+            color: #fff;
+            cursor: pointer;
+            background-image: linear-gradient(90deg , #0c8ea8 50%, #2fdbb6  100%) !important;
+            box-shadow:2px 3px 3px grey;
+
+        }
+        form .body-text:valid ~ button:hover{
+            background: #1a81ff;
+        }
+
+
+        .add-image{
+            background-color:none;
+            height: 30px;
+            width: 150px;
+            border-radius: 5px;
+            padding: 3px 3px 6px 3px;
+            color: transparent;
+            margin-right:-40px;
+            font-size: 1rem;
+            display: inline-block;
+            border: none;
+            content: '';
+            cursor: pointer;
+
+        }
+        .add-image:hover{
+            color:transparent;
+            transition: all 1s ease-in;
+
+        }
+        .add-image::placeholder {
+            color:rgb(133,130,130);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<div class="container">
+    <div class="wrapper">
+        <section class="post">
+            <header>Edit Comment</header>
+
+
+            <!--      <form action="/update" th:object="${post}" method="post">-->
+            <form action="#" th:action="@{/updateComment/{id}(id=${comment.getId()})}" th:object="${comment}" method="post">
+                <div class="content">
+
+                    <div class="details">
+
+                        <input type="hidden" name="user_id" value="" >
+                        <!-- <textarea name="text" class="title-text" placeholder="What's on your mind, JavaDevs?"  spellcheck="false" type="text"  value=""  required></textarea> -->
+
+                        <textarea class="title-text" type="text"  spellcheck="false" th:field="*{content}" disabled></textarea>
+
+                    </div>
+                </div>
+                <textarea class="body-text" name="content" spellcheck="true" type="text"  value=""  required></textarea>
+
+
+
+
+                <!--                <div class="options">-->
+                <!--                    <p>Add to Your Post</p>-->
+                <!--                    <input type="file" name="image" class="add-image" value="add image" accept="image">-->
+
+                <!--                </div>-->
+                <a style="text-decoration: none;  " href="" class="nav-link"></a>
+
+                <button class="form-button">
+                    <a style=" text-decoration: none; color:white;" class="nav-link">Update Comment</a>
+                </button>
+
+            </form>
+        </section>
+
+    </div>
+</div>
+
+</body>
+</html>
