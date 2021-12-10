@@ -13,6 +13,7 @@ import com.example.week7task.service.serviceImplementation.UserServiceImpl;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class UserController {
@@ -101,6 +102,12 @@ public class UserController {
     public String logout(HttpSession session) {
         session.invalidate();
         return "login_page";
+    }
+    @GetMapping("/getpeoplelist")
+    public String getAllUsers(Model model){
+        model.addAttribute("list", new UserInfo());
+        List<UserInfo> listOfUsers = userServiceImpl.findAllUser();
+        return "listOfUsers";
     }
 
   /*  @PostMapping("/validate")
