@@ -1,5 +1,6 @@
 package com.example.week7task.controller;
 
+import com.example.week7task.model.Comment;
 import com.example.week7task.model.Post;
 import com.example.week7task.model.UserInfo;
 import com.example.week7task.service.serviceImplementation.CommentServiceImpl;
@@ -26,6 +27,8 @@ public class PostController {
         return "post_page";
     }
 
+
+
     @PostMapping("/addPost")
     public String addPost(@ModelAttribute Post post, HttpSession session, Model model) {
         UserInfo user = (UserInfo) session.getAttribute("user");
@@ -36,6 +39,7 @@ public class PostController {
         newPost.setContent(post.getContent());
         postServiceImpl.addPost(newPost);
         postServiceImpl.viewDashboard(model);
+
         return "redirect:/dashboard";
     }
 

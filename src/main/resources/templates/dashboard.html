@@ -207,7 +207,7 @@
                 </div>
                 <div class="post-info">
                     <p class="name"><span th:text="${post.getUser().getFirstname()}"></span> <span th:text="${post.getUser().getLastname()}"></span></p>
-                    <span class="time"><span th:text="${post.getDateCreated()}"></span> </span>
+                    <span class="time"><sp22an th:text="${post.getDateCreated()}"></sp22an> </span>
                 </div>
                 <i class="fas fa-ellipsis-h"></i>
             </div>
@@ -231,7 +231,7 @@
                     <i class="far fa-thumbs-up"></i>
                     <span>Like</span>
                 </div>
-                <div class="action" id="make-comment">
+                <div class="action make-comment" id="">
                     <a  style="text-decoration: none; color:grey;" th:href="@{/showCommentForm/{id}(id=${post.getId()})}"><i class="far fa-comment"></i>
                         <span>Comment</span>
                 </div>
@@ -248,51 +248,51 @@
 
             <!--            Post's comment section      -->
 
-<!--            <div class="test">-->
-<!--                <div class="comment" th:each="comment :${comments}">-->
-<!--                    <div th:if="${post.getId()} == ${comment.getPost().getId()}">-->
-<!--                        <div class="post-top">-->
-<!--                            <div class="dp">-->
-<!--                                <img src="./images/girl.jpg" alt="">-->
-<!--                            </div>-->
-<!--                            <div class="post-info">-->
-<!--                                <p class="name" style="font-size: 17px; font-weight: 300;"><span th:text="${comment.getUser().getFirst_name()}"></span> <span th:text="${comment.getUser().getLast_name()}"></span></p>-->
-<!--                                <span style="font-size: 15px; font-weight: 300;" class="time"><span th:text="${comment.getDateCreated()}"></span></span>-->
-<!--                            </div>-->
+            <div class="test">
+                <div class="comment" th:each="comment :${comments}">
+                    <div th:if="${post.getId()} == ${comment.getPost().getId()}">
+                        <div class="post-top">
+                            <div class="dp">
+                                <img src="./images/girl.jpg" alt="">
+                            </div>
+                            <div class="post-info">
+                                <p class="name" style="font-size: 17px; font-weight: 300;"><span th:text="${comment.getUser().getFirstname()}"></span> <span th:text="${comment.getUser().getLastname()}"></span></p>
+                                <span style="font-size: 15px; font-weight: 300;" class="time"><span th:text="${comment.getDateCreated()}"></span></span>
+                            </div>
 
-<!--                        </div>-->
-<!--                        <div class="post-content">-->
-<!--                            <div></div>-->
-<!--                            <div  class="post-body"> <p style="font-size: 15px; font-weight: 600; color: grey; text-align: right; "><span th:text="${comment.getContent()}"></span></p></div>-->
-<!--                            <div>-->
-<!--                                <img src="" alt="" />-->
-<!--                            </div>-->
-<!--                        </div>-->
+                        </div>
+                        <div class="post-content">
+                            <div></div>
+                            <div  class="post-body"> <p style="font-size: 15px; font-weight: 600; color: grey; text-align: right; "><span th:text="${comment.getContent()}"></span></p></div>
+                            <div>
+                                <img src="" alt="" />
+                            </div>
+                        </div>
 
-<!--                        <div class="post-content">-->
-<!--                            <div></div>-->
-<!--                            <div  class="post-body"> <p style="font-size: 12px; font-weight: 600; color: grey; text-align: right; "><span th:text="${comment.getEditNotice()}"></span></p></div>-->
-<!--                            <div>-->
-<!--                                <img src="" alt="" />-->
-<!--                            </div>-->
-<!--                        </div>-->
+                        <div class="post-content">
+                            <div></div>
+                            <div  class="post-body"> <p style="font-size: 12px; font-weight: 600; color: grey; text-align: right; "><span th:text="${comment.getEditNotice()}"></span></p></div>
+                            <div>
+                                <img src="" alt="" />
+                            </div>
+                        </div>
 
-<!--                        <div class="post-bottom">-->
-<!--                            <div class="action" id="like-post">-->
-<!--                                <i class="far fa-thumbs-up"></i>-->
-<!--                                <span>Like</span>-->
-<!--                            </div>-->
+                        <div class="post-bottom">
+                            <div class="action" id="like-post">
+                                <i class="far fa-thumbs-up"></i>
+                                <span>Like</span>
+                            </div>
 
-<!--                            <div class="action" id="edit-comment">-->
-<!--                                <a  style="text-decoration: none; color:grey;" href="#" th:href="@{/editCommentForm/{id}(id=${comment.getId()})}"><i class="fa fa-edit"></i> Edit</a>-->
-<!--                            </div>-->
-<!--                            <div class="action" id= "deleter">-->
-<!--                                <a style="text-decoration: none; color: grey;" href="" th:href="${'deleteComment/' + comment.getId()}"> <i class="fa fa-trash"></i> Delete</a>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
+                            <div class="action" id="edit-comment">
+                                <a  style="text-decoration: none; color:grey;" href="#" th:href="@{/editCommentForm/{id}(id=${comment.getId()})}"><i class="fa fa-edit"></i> Edit</a>
+                            </div>
+                            <div class="action" id= "deleter">
+                                <a style="text-decoration: none; color: grey;" href="" th:href="${'deleteComment/' + comment.getId()}"> <i class="fa fa-trash"></i> Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
 
@@ -464,9 +464,9 @@
     var clear = document.getElementById('clear')
     // var commentEditer = document.getElementById('editer');
     // var commentDeleter = document.getElementById('deleter')
-    var commentContainer = document.querySelector('.comment-container');
+    var commentContainer = document.querySelectorAll('.comment-container');
     var addComments = document.getElementById('edit-comment');
-    var editComments = document.getElementById('make-comment');
+    var editComments = document.querySelectorAll('.make-comment');
     var likePost = document.getElementById('like-post');
     var likeComment = document.getElementById('like-comment')
     likeComment.addEventListener('click',function(){
@@ -474,7 +474,7 @@
 
     })
 
-    likePost.addEventListener('click',function(){
+    likePost.addEventListener('click', function(){
         this.classList.toggle("like-color");
 
     })
@@ -482,10 +482,13 @@
         commentContainer.classList.toggle('showComment');
 
     });
-    editComments.addEventListener('click', function(){
-        commentContainer.classList.toggle('showComment');
+    for (let i = 0; i<editComments.length; i++){
+        editComments[i].addEventListener('click', function(){
+            commentContainer[i].classList.toggle('showComment');
 
-    });
+        });
+    }
+
 
 
     feild.onfocus = function(){

@@ -19,6 +19,8 @@ public class UserInfo {
     private String firstname;
     private String lastname;
 
+    Post post = new Post();
+
     @Column(nullable = false)
     private String email;
     private String password;

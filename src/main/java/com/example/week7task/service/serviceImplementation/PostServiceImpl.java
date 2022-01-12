@@ -46,9 +46,8 @@ public class PostServiceImpl implements PostServices {
         Post post = new Post();
         Comment comment = new Comment();
         List<Post> posts = this.getPosts();
-        Collections.reverse(posts);
-
         List<Comment> comments = commentService.getComments();
+        Collections.reverse(posts);
         /* add posts to the model */
         model.addAttribute("posts", posts);
         model.addAttribute("post", post);

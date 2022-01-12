@@ -67,14 +67,6 @@ class UserServiceImplTest {
     @Test
     void saverUser() {
 
-
-       /* public UserInfo saverUser(UserInfo userInfo) {
-            if (userRepository.findByEmail(userInfo.getEmail()).isPresent()) {
-                System.out.println("This mail is in use");
-                return null;
-            }
-            return userRepository.save(userInfo);*/
-
         //mock userRepository
         when(userRepository.save(any(UserInfo.class))).thenReturn(userInfo);
 
@@ -89,9 +81,6 @@ class UserServiceImplTest {
 
     @Test
     void authenticate() {
-        // UserInfo authenticate(String email, String password);
-       // public UserInfo authenticate(String email, String password){
-         //   return userRepository.findByEmailAndPassword(email, password).orElse(null);
 
         when(userRepository.findByEmailAndPassword(anyString(), anyString())).thenReturn(Optional.of(userInfo));
 

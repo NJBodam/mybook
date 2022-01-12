@@ -3,8 +3,7 @@ package com.example.week7task.controller;
 import com.example.week7task.model.UserInfo;
 import com.example.week7task.service.serviceImplementation.PostServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,14 +11,14 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.week7task.service.serviceImplementation.UserServiceImpl;
 
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 import java.util.List;
+
 
 @Controller
 public class UserController {
 
-    private UserServiceImpl userServiceImpl;
-    private PostServiceImpl postServiceImpl;
+    final private UserServiceImpl userServiceImpl;
+    final private PostServiceImpl postServiceImpl;
 
     @Autowired
     public UserController(UserServiceImpl userServiceImpl, PostServiceImpl postServiceImpl) {
