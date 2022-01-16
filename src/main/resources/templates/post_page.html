@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/post.css">
+
+</head>
+<body>
+
+<div class="container">
+    <div class="wrapper">
+        <section class="post">
+            <header>Create Post</header>
+
+
+            <form action="/addPost" method="post">
+                <div class="content">
+
+                    <div class="details">
+
+                        <input type="hidden" name="user_id" value="" >
+                        <!-- <textarea name="text" class="title-text" placeholder="What's on your mind, JavaDevs?"  spellcheck="false" type="text"  value=""  required></textarea> -->
+
+                        <input class="title-text" type="text"  spellcheck="false" name="title" value=""  placeholder="Title" required>
+
+                    </div>
+                </div>
+                <textarea class="body-text" name="content"  placeholder="What's on your mind, JavaDevs?"  spellcheck="false" type="text"  value=""  required></textarea>
+
+
+
+
+                <div class="options">
+                    <p>Add to Your Post</p>
+                    <input type="file" name="image" class="add-image" value="add image" accept="image">
+
+                </div>
+                <a style="text-decoration: none;  " href="" class="nav-link"></a>
+
+                <button class="form-button">
+                    <a style="text-decoration: none; color:white;" class="nav-link">Post</a>
+                </button>
+
+            </form>
+        </section>
+
+    </div>
+</div>
+
+
+</body>
+</html>

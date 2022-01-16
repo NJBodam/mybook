@@ -1,0 +1,519 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+          integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <title>MediaBook</title>
+
+
+</head>
+
+<body>
+
+<div>
+</div>
+<nav>
+    <div class="nav-left">
+        <img src="./images/logo.png" alt="Logo">
+        <input type="text" placeholder="Search Media-Book...">
+    </div>
+
+    <div class="nav-middle">
+        <a href="#" class="active">
+            <i class="fa fa-home"></i>
+        </a>
+
+        <a href="#">
+            <i class="fa fa-user-friends"></i>
+        </a>
+
+        <a href="#">
+            <i class="fa fa-play-circle"></i>
+        </a>
+
+        <a href="#">
+            <i class="fa fa-users"></i>
+        </a>
+    </div>
+
+    <div class="nav-right">
+        <span class="profile"></span>
+
+        <a href="#">
+            <i class="fa fa-bell"></i>
+        </a>
+
+        <a href="/logout">
+            <i class="fas fa-ellipsis-h">Logout</i>
+        </a>
+    </div>
+</nav>
+
+
+<div class="container">
+    <div class="left-panel">
+        <ul>
+            <li>
+                <span class="profile"></span>
+                <p><span th:text="${userLogin}"></span></p>
+            </li>
+            <li>
+                <i class="fa fa-user-friends"></i>
+                <p>Friends</p>
+            </li>
+            <li>
+                <i class="fa fa-play-circle"></i>
+                <p>Videos</p>
+            </li>
+            <li>
+                <i class="fa fa-flag"></i>
+                <p>Pages</p>
+            </li>
+            <li>
+                <i class="fa fa-users"></i>
+                <p>Groups</p>
+            </li>
+            <li>
+                <i class="fa fa-bookmark"></i>
+                <p>Bookmark</p>
+            </li>
+            <li>
+                <i class="fab fa-facebook-messenger"></i>
+                <p>Inbox</p>
+            </li>
+            <li>
+                <i class="fas fa-calendar-week"></i>
+                <p>Events</p>
+            </li>
+            <li>
+                <i class="fa fa-bullhorn"></i>
+                <p>Ads</p>
+            </li>
+            <li>
+                <i class="fas fa-hands-helping"></i>
+                <p>Offers</p>
+            </li>
+            <li>
+                <i class="fas fa-briefcase"></i>
+                <p>Jobs</p>
+            </li>
+            <li>
+                <i class="fa fa-star"></i>
+                <p>Favourites</p>
+            </li>
+        </ul>
+
+        <div class="footer-links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Advance</a>
+            <a href="#">More</a>
+        </div>
+    </div>
+
+
+    <div class="middle-panel">
+
+        <div class="story-section">
+
+            <div class="story create">
+                <div class="dp-image">
+                    <img src="./images/dp.jpg" alt="Profile pic">
+                </div>
+                <span class="dp-container">
+                        <i class="fa fa-plus"></i>
+                    </span>
+                <span class="name">Create Story</span>
+            </div>
+
+
+            <div class="story">
+                <img src="./images/model.jpg" alt="Anuska's story">
+                <div class="dp-container">
+                    <img src="./images/girl.jpg" alt="">
+                </div>
+                <p class="name">Temitope Akintola</p>
+            </div>
+
+            <div class="story">
+                <img src="./images/boy.jpg" alt="Story image">
+                <span class="dp-container">
+                        <img src="./images/dp.jpg" alt="Profile pic">
+                    </span>
+                <span class="name">Usman Kulaha</span>
+            </div>
+
+            <div class="story">
+                <img src="./images/mountains.jpg" alt="Story image">
+                <span class="dp-container">
+                        <img src="./images/boy.jpg" alt="Profile pic">
+                    </span>
+                <span class="name">Ikechukwu Obinwanne </span>
+            </div>
+
+            <div class="story">
+                <img src="./images/shoes.jpg" alt="Story image">
+                <span class="dp-container">
+                        <img src="./images/model.jpg" alt="Profile pic">
+                    </span>
+                <span class="name">Warith Omojola</span>
+            </div>
+        </div>
+
+        <div class="post create">
+            <div class="post-top">
+                <div class="dp">
+                    <img src="./images/girl.jpg" alt="">
+                </div>
+
+                <a style="border: none; width:90%; padding: 6px;" href="/post" class="btn btn-success">
+                    <input style="border:none; background:#eee; width: 85%; padding: 10px 6px; border-radius: 10px;" type="text" placeholder="What's on your mind?"/>
+                </a>
+
+            </div>
+
+            <div class="post-bottom">
+                <div class="action">
+                    <i class="fa fa-video"></i>
+                    <span>Live video</span>
+                </div>
+                <div class="action">
+                    <i class="fa fa-image"></i>
+                    <span>Photo/Video</span>
+                </div>
+                <div class="action">
+                    <i class="fa fa-smile"></i>
+                    <span>Feeling/Activity</span>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="post created-post" th:each="post: ${posts}">
+
+            <div class="post-top">
+                <div class="dp">
+                    <img src="./images/girl.jpg" alt="">
+                </div>
+                <div class="post-info">
+                    <p class="name"><span th:text="${post.getUser().getFirstname()}"></span> <span th:text="${post.getUser().getLastname()}"></span></p>
+                    <span class="time"><sp22an th:text="${post.getDateCreated()}"></sp22an> </span>
+                </div>
+                <i class="fas fa-ellipsis-h"></i>
+            </div>
+
+            <div class="post-content">
+
+                <div class="title"><h2> <span th:text="${post.getTitle()}"></span></h2>  </div>
+
+                <div class="post-body"> <p><h3><span th:text="${post.getContent()}"></span></p> </h3></div>
+
+                <div class="post-body"> <p><h5><span th:text="${post.getEditNotice()}"></span></p> </h5></div>
+                <div>
+                    <img src="" alt="" />
+
+                </div>
+
+            </div>
+
+            <div class="post-bottom">
+                <div class="action" id="like-post">
+                    <i class="far fa-thumbs-up"></i>
+                    <span>Like</span>
+                </div>
+                <div class="action make-comment" id="">
+                    <a  style="text-decoration: none; color:grey;" th:href="@{/showCommentForm/{id}(id=${post.getId()})}"><i class="far fa-comment"></i>
+                        <span>Comment</span>
+                </div>
+                <div class="action" id="edit-comment">
+                    <a  style="text-decoration: none; color:grey;" th:href="@{/showPostEditForm/{id}(id=${post.getId()})}"><i class="fa fa-edit"></i> Edit</a>
+
+                </div>
+                <div class="action" id= "deleter">
+                    <a style="text-decoration: none; color: grey;" th:href="${'delete/' + post.getId()}"> <i class="fa fa-trash"></i> Delete</a>
+                </div>
+            </div>
+
+
+
+            <!--            Post's comment section      -->
+
+            <div class="test">
+                <div class="comment" th:each="comment :${comments}">
+                    <div th:if="${post.getId()} == ${comment.getPost().getId()}">
+                        <div class="post-top">
+                            <div class="dp">
+                                <img src="./images/girl.jpg" alt="">
+                            </div>
+                            <div class="post-info">
+                                <p class="name" style="font-size: 17px; font-weight: 300;"><span th:text="${comment.getUser().getFirstname()}"></span> <span th:text="${comment.getUser().getLastname()}"></span></p>
+                                <span style="font-size: 15px; font-weight: 300;" class="time"><span th:text="${comment.getDateCreated()}"></span></span>
+                            </div>
+
+                        </div>
+                        <div class="post-content">
+                            <div></div>
+                            <div  class="post-body"> <p style="font-size: 15px; font-weight: 600; color: grey; text-align: right; "><span th:text="${comment.getContent()}"></span></p></div>
+                            <div>
+                                <img src="" alt="" />
+                            </div>
+                        </div>
+
+                        <div class="post-content">
+                            <div></div>
+                            <div  class="post-body"> <p style="font-size: 12px; font-weight: 600; color: grey; text-align: right; "><span th:text="${comment.getEditNotice()}"></span></p></div>
+                            <div>
+                                <img src="" alt="" />
+                            </div>
+                        </div>
+
+                        <div class="post-bottom">
+                            <div class="action" id="like-post">
+                                <i class="far fa-thumbs-up"></i>
+                                <span>Like</span>
+                            </div>
+
+                            <div class="action" id="edit-comment">
+                                <a  style="text-decoration: none; color:grey;" href="#" th:href="@{/editCommentForm/{id}(id=${comment.getId()})}"><i class="fa fa-edit"></i> Edit</a>
+                            </div>
+                            <div class="action" id= "deleter">
+                                <a style="text-decoration: none; color: grey;" href="" th:href="${'deleteComment/' + comment.getId()}"> <i class="fa fa-trash"></i> Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="comment-container">
+
+            <form action="" method="">
+                <textarea class="comment-text" name = "content" placeholder='Edit Your post'></textarea>
+
+                <div class="btn-mother">
+
+
+
+                    <div class="action-btns" id="like-comment">
+                        <button class="comment-btn" href="#"><i class="far fa-thumbs-up"></i> like</button>
+                    </div>
+                    <div class="action-btns">
+                        <button class="comment-btn" href="#"><i class="fa fa-file"></i> post</button>
+                        <!--                        th:href="${'update/' + post.getId()}"-->
+
+                    </div>
+                    <div class="action-btns">
+                        <button class="comment-btn" href="#"><i class="fa fa-edit"></i> Edit</button>
+
+                    </div>
+                    <div class="action-btns">
+                        <button class="comment-btn"  href=""> <i class="fa fa-trash"></i> Delete</button>
+                    </div>
+
+
+
+
+
+
+                    <!-- <input type="submit" value='Comment'>
+                    <button id='clear' href='#'>Cancel</button> -->
+                </div>
+            </form>
+
+            <form action="" method="">
+                <textarea class="comment-text" placeholder='Add Your Comment'></textarea>
+
+                <div class="btn-mother">
+
+
+
+                    <div class="action-btns" id="like-comment">
+                        <button class="comment-btn" href="#"><i class="far fa-thumbs-up"></i> like</button>
+                    </div>
+                    <div class="action-btns">
+                        <button class="comment-btn" href="#"><i class="fa fa-file"></i> post</button>
+
+                    </div>
+                    <div class="action-btns">
+                        <button class="comment-btn" href="#"><i class="fa fa-edit"></i> Edit</button>
+
+                    </div>
+                    <div class="action-btns">
+                        <button class="comment-btn"  href=""> <i class="fa fa-trash"></i> Delete</button>
+                    </div>
+
+
+
+
+
+
+                    <!-- <input type="submit" value='Comment'>
+                    <button id='clear' href='#'>Cancel</button> -->
+                </div>
+            </form>
+        </div>
+
+
+
+
+        <a style="text-decoration: none;  " href="" class="nav-link"></a>
+
+
+    </div>
+
+
+
+
+    <div class="right-panel">
+
+
+        <div class="pages-section">
+            <h4>Your pages</h4>
+            <a class='page' href="#">
+                <div class="dp">
+                    <img src="./images/logo.png" alt="">
+                </div>
+                <p class="name">Java Stack</p>
+            </a>
+
+            <a class='page' href="#">
+                <div class="dp">
+                    <img src="./images/dp.jpg" alt="">
+                </div>
+                <p class="name">Java Tutorials</p>
+            </a>
+        </div>
+
+        <div class="friends-section">
+            <h4>Friends</h4>
+            <a class='friend' href="#">
+                <div class="dp">
+                    <img src="./images/dp.jpg" alt="">
+                </div>
+                <p class="name">Prosper Amalaha</p>
+            </a>
+
+            <a class='friend' href="#">
+                <div class="dp">
+                    <img src="./images/shoes.jpg" alt="">
+                </div>
+                <p class="name">Elvis Ireaja</p>
+            </a>
+
+            <a class="friend" href="#">
+                <div class="dp">
+                    <img src="./images/boy.jpg" alt="">
+                </div>
+                <p class="name">Bodam Jerry</p>
+            </a>
+
+            <a class="friend" href="#">
+                <div class="dp">
+                    <img src="./images/model.jpg" alt="">
+                </div>
+                <p class="name">Ogochukwu Izundu</p>
+            </a>
+
+            <a class="friend" href="#">
+                <div class="dp">
+                    <img src="./images/boy.jpg" alt="">
+                </div>
+                <p class="name">Uchenna Ogbodo</p>
+            </a>
+
+            <a class="friend" href="#">
+                <div class="dp">
+                    <img src="./images/dp.jpg" alt="">
+                </div>
+                <p class="name">Makera Apiri</p>
+            </a>
+
+            <a class="friend" href="#">
+                <div class="dp">
+                    <img src="./images/model.jpg" alt="">
+                </div>
+                <p class="name">Flora Egwu</p>
+            </a>
+
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+
+
+
+    var feild = document.querySelector('textarea');
+    var backUp = feild.getAttribute('placeholder');
+    var btn = document.querySelector('.btn');
+    var clear = document.getElementById('clear')
+    // var commentEditer = document.getElementById('editer');
+    // var commentDeleter = document.getElementById('deleter')
+    var commentContainer = document.querySelectorAll('.comment-container');
+    var addComments = document.getElementById('edit-comment');
+    var editComments = document.querySelectorAll('.make-comment');
+    var likePost = document.getElementById('like-post');
+    var likeComment = document.getElementById('like-comment')
+    likeComment.addEventListener('click',function(){
+        this.classList.toggle("like-color");
+
+    })
+
+    likePost.addEventListener('click', function(){
+        this.classList.toggle("like-color");
+
+    })
+    addComments.addEventListener('click', function(){
+        commentContainer.classList.toggle('showComment');
+
+    });
+    for (let i = 0; i<editComments.length; i++){
+        editComments[i].addEventListener('click', function(){
+            commentContainer[i].classList.toggle('showComment');
+
+        });
+    }
+
+
+
+    feild.onfocus = function(){
+        this.setAttribute('placeholder', '');
+        this.style.borderColor = 'grey';
+        // btn.style.display = 'flex'
+        btn.classList.add("spread");
+
+    }
+
+    feild.onblur = function(){
+        this.setAttribute('placeholder',backUp);
+        this.style.borderColor = '#aaa'
+    }
+
+    clear.onclick = function(){
+        btn.style.display = 'none';
+        feild.value = '';
+    }
+
+
+</script>
+
+
+
+</body>
+
+</html>
