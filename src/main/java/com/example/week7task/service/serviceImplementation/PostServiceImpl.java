@@ -42,6 +42,7 @@ public class PostServiceImpl implements PostServices {
         return postRepository.findAll();
     }
 
+    @Override
     public void viewDashboard(Model model){
         Post post = new Post();
         Comment comment = new Comment();
